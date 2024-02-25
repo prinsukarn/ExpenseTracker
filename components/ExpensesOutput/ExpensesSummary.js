@@ -6,7 +6,6 @@ function ExpensesSummary({ expenses, periodName }) {
     return sum + expense.amount;
   }, 0);
 
-  console.log(periodName);
   return (
     <View style={styles.container}>
       <Text style={styles.period}>{periodName}</Text>
