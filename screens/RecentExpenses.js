@@ -1,7 +1,16 @@
-import { Text } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
-function RecentExpenses() {
-  return <Text>Recent Expenses Screen</Text>;
+function RecentExpense() {
+  return <ExpensesOutput expensesPeriod={"Last 7 days"} />;
 }
 
-export default RecentExpenses;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
+export default RecentExpense;
