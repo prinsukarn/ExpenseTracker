@@ -6,6 +6,7 @@ import Button from "../components/UI/Button";
 import { ExpensesContext } from "../store/expenses-context";
 
 function ManageExpense({ route, navigation }) {
+  const expensesCtx = useContext(ExpensesContext);
   const editedExpenseId = route.params?.expenseId;
 
   const isEditing = !!editedExpenseId;
@@ -16,13 +17,29 @@ function ManageExpense({ route, navigation }) {
     });
   }, [navigation, isEditing]);
 
-  function deleteExpenseHandler() {}
+  function deleteExpenseHandler() {
+    expensesCtx.deleteExpense(editedExpenseId);
+    navigation.goBack();
+  }
 
   function cancelHandler() {
     navigation.goBack();
   }
 
   function confirmHandler() {
+    if (isEditing) {
+      expensesCtx.updateExpense(editedExpenseId, {
+        description: "Test!!!!!",
+        amount: 19.99,
+        date: new Date("2024-02-24"),
+      });
+    } else {
+      // expensesCtx.addExpense({
+      //   description: "Test!!!",
+      //   amount: 19.99,
+      //   date: new Date("2024-02-24"),
+      // });
+    }
     navigation.goBack();
   }
 
