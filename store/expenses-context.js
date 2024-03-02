@@ -5,37 +5,55 @@ const DUMMY_EXPENSES = [
     id: "e1",
     description: "A pair of shoes",
     amount: 59.99,
-    date: new Date("2024-2-29"),
+    date: new Date("2024-02-29"),
   },
   {
     id: "e2",
-    description: "Data Cable",
-    amount: 10.99,
-    date: new Date("2023-11-19"),
+    description: "A pair of trousers",
+    amount: 89.29,
+    date: new Date("2022-01-05"),
   },
   {
     id: "e3",
-    description: "A pair of trousers",
-    amount: 50.99,
-    date: new Date("2023-12-22"),
+    description: "Some bananas",
+    amount: 5.99,
+    date: new Date("2021-12-01"),
   },
   {
     id: "e4",
-    description: "Sunglasses",
-    amount: 25.0,
-    date: new Date("2024-1-19"),
+    description: "A book",
+    amount: 14.99,
+    date: new Date("2022-02-19"),
   },
   {
     id: "e5",
-    description: "Flowers",
-    amount: 36.12,
-    date: new Date("2024-2-9"),
+    description: "Another book",
+    amount: 18.59,
+    date: new Date("2022-02-18"),
   },
   {
     id: "e6",
-    description: "A pair of socks",
-    amount: 59.99,
-    date: new Date("2024-3-2"),
+    description: "A pair of trousers",
+    amount: 89.29,
+    date: new Date("2022-01-05"),
+  },
+  {
+    id: "e7",
+    description: "Some bananas",
+    amount: 5.99,
+    date: new Date("2021-12-01"),
+  },
+  {
+    id: "e8",
+    description: "A book",
+    amount: 14.99,
+    date: new Date("2022-02-19"),
+  },
+  {
+    id: "e9",
+    description: "Another book",
+    amount: 18.59,
+    date: new Date("2022-02-18"),
   },
 ];
 
@@ -61,7 +79,7 @@ function expensesReducer(state, action) {
       updatedExpenses[updatableExpenseIndex] = updatedItem;
       return updatedExpenses;
     case "DELETE":
-      return state.filter((expense) => expense.id != action.payload);
+      return state.filter((expense) => expense.id !== action.payload);
     default:
       return state;
   }
@@ -70,7 +88,7 @@ function expensesReducer(state, action) {
 function ExpensesContextProvider({ children }) {
   const [expensesState, dispatch] = useReducer(expensesReducer, DUMMY_EXPENSES);
 
-  function addExpense({ expenseData }) {
+  function addExpense(expenseData) {
     dispatch({ type: "ADD", payload: expenseData });
   }
 

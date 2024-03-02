@@ -34,11 +34,11 @@ function ManageExpense({ route, navigation }) {
         date: new Date("2024-02-24"),
       });
     } else {
-      // expensesCtx.addExpense({
-      //   description: "Test!!!",
-      //   amount: 19.99,
-      //   date: new Date("2024-02-24"),
-      // });
+      expensesCtx.addExpense({
+        description: "Test!!!",
+        amount: 19.99,
+        date: new Date("2024-02-24"),
+      });
     }
     navigation.goBack();
   }
