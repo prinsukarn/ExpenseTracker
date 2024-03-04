@@ -13,7 +13,7 @@ function expensesReducer(state, action) {
     case "ADD":
       // const id = new Date().toString() + Math.random().toString();
       // return [{ ...action.payload, id: id }, ...state];
-      return [...action.payload, ...state];
+      return [action.payload, ...state];
     case "SET":
       const inverted = action.payload.reverse();
       return inverted;
